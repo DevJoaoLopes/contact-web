@@ -21,3 +21,11 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::post('/auth', 'ApiController@postLogin');
 
+Route::get('/contacts', 'ApiController@getContacts');
+
+Route::post('/contacts', 'ApiController@postContacts');
+
+Route::post('/delete/contact', 'ApiController@deleteContact');
+
+Route::put('/edit/contact', 'ApiController@editContact');
+
