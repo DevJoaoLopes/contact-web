@@ -94,6 +94,23 @@ class ApiController extends Controller
         }
     }
 
+
+    public function getPhones()
+    {
+        $all_phones = Phone::All();
+        $array = array();
+        foreach ($all_phones as $phone) {
+            array_push($array, $phone);
+        }
+
+        if (sizeof($array) > 0) {
+            return response(["data" => $array], 200);
+        } else {
+            return response([], 200);
+        }
+    }
+
+
     public function postPhone(Request $request)
     {
         $phone = new Phone();
@@ -109,4 +126,19 @@ class ApiController extends Controller
             return response(["message" => "Erro ao cadastrar", "error" => $e], 500);
         }
     }
+    public function editPhone(Request $request)
+    {
+        $phone = Phone::find($request->input("id"));
+
+        if (isset($phone)) {
+            $phone->number = $request->number;
+            $phone->type = $request->type;
+            $phone->contact_id = $request->contact_id;
+            $phone->save();
+            return response(["message" => "Alteração realizada com sucesso"], 200);
+        } else {
+            return response(["message" => "Erro ao alterar"], 200);
+        }
+    }
+
 }
