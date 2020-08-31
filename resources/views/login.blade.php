@@ -4,11 +4,11 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Login</title>
+        <title>Project Contacts</title>
 
     </head>
     <body>
-        <div id="login"></div>
+        <div id="routes"></div>
 
         <script src="{{asset('js/app.js')}}" ></script>
     </body>

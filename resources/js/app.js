@@ -12,4 +12,6 @@ require('./bootstrap');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-require('./components/Login');
+require('./components/routes');
+require('./components/Login/Login');
+require('./components/Contact/Contact');
