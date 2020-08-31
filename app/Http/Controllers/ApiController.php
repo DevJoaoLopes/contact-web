@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Contact;
+use App\Phone;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -26,12 +27,23 @@ class ApiController extends Controller
     public function getContacts()
     {
         $all_contacts = Contact::All();
-        $array = [];
-        foreach ($all_contacts as $value) {
-            array_push($array, $value);
+        $all_phones = Phone::All();
+        $array = array();
+        foreach ($all_contacts as $contact) {
+            $phones = [];
+            foreach ($all_phones as $phone) {
+                if ($phone->contact_id == $contact->id) {
+                    array_push($phones, $phone);
+                }
+            }
+            array_push($array, (object) [
+                'contact' => $contact,
+                'phones' => $phones,
+            ]);
         }
+
         if (sizeof($array) > 0) {
-            return response(["contacts" => $array], 200);
+            return response(["data" => $array], 200);
         } else {
             return response([], 200);
         }
@@ -53,6 +65,7 @@ class ApiController extends Controller
             return response(["message" => "Erro ao cadastrar", "error" => $e], 500);
         }
     }
+
 
     public function deleteContact(Request $request)
     {
@@ -78,6 +91,22 @@ class ApiController extends Controller
             return response(["message" => "Alteração realizada com sucesso"], 200);
         } else {
             return response(["message" => "Erro ao alterar"], 200);
+        }
+    }
+
+    public function postPhone(Request $request)
+    {
+        $phone = new Phone();
+        try {
+            $phone->number = $request->number;
+            $phone->type = $request->type;
+            $phone->contact_id = $request->contact_id;
+            $phone->save();
+            if (isset($phone)) {
+                return response(["message" => "Telefone Cadastrado!!"], 200);
+            }
+        } catch (\Exception $e) {
+            return response(["message" => "Erro ao cadastrar", "error" => $e], 500);
         }
     }
 }
