@@ -3,20 +3,26 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   display: flex;
+  flex: 1;
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background-color: #00000029;
+  background-color: #ffffff;
 `;
 
 export const Form = styled.form`
   width: 400px;
   background: #fff;
   padding: 20px;
+  border-radius: 2px;
+  border-color: #64636f;
   display: flex;
   flex-direction: column;
   align-items: center;
-  h3 {
+  box-shadow: 2px 2px 2px 2px #64636f;
+  img {
+    width: 100px;
+    margin: 10px 0 40px;
     font-size: 30px;
     align-self: center;
   }
@@ -44,7 +50,7 @@ export const Form = styled.form`
   button {
     color: #fff;
     font-size: 16px;
-    background: #3F85D6;
+    background: #221e5a;
     height: 56px;
     border: 0;
     border-radius: 5px;

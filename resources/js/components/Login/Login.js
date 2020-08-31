@@ -6,6 +6,8 @@ import {
     withRouter, useHistory, 
 } from "react-router-dom";
 
+import Logo from "../logo.png";
+
 
 function Login() {
     const [error, setError] = React.useState('');
@@ -26,7 +28,7 @@ function Login() {
                     pass,
                 });
                 if (response.data.auth) {
-                    login();
+                    login('token-abc');
                     history.push('/contact');
                 }else{
                     setError("Dados invalidos!!")
@@ -40,7 +42,7 @@ function Login() {
     return (
         <Container>
             <Form onSubmit={handleAuth}>
-                <h3>Login</h3>
+                <img src={Logo} alt="Logo" />
                 {error && <p>{error}</p>}
                 <input
                     type="nome"

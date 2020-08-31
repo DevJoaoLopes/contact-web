@@ -73394,13 +73394,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _styles__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./styles */ "./resources/js/components/Contact/styles.js");
+
 
 
 
 function Contact() {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "container"
-  }, "Contato Page");
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles__WEBPACK_IMPORTED_MODULE_2__["Container"], null);
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (Contact);
@@ -73408,6 +73408,34 @@ function Contact() {
 if (document.getElementById('contact')) {
   react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Contact, null), document.getElementById('contact'));
 }
+
+/***/ }),
+
+/***/ "./resources/js/components/Contact/styles.js":
+/*!***************************************************!*\
+  !*** ./resources/js/components/Contact/styles.js ***!
+  \***************************************************/
+/*! exports provided: Container */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Container", function() { return Container; });
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+function _templateObject() {
+  var data = _taggedTemplateLiteral(["\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  height: 100vh;\n  background-color: #ffffff;\n"]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+
+var Container = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].div(_templateObject());
 
 /***/ }),
 
@@ -73429,6 +73457,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _services__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../services */ "./resources/js/components/services.js");
 /* harmony import */ var _styles__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./styles */ "./resources/js/components/Login/styles.js");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _logo_png__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../logo.png */ "./resources/js/components/logo.png");
+/* harmony import */ var _logo_png__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_logo_png__WEBPACK_IMPORTED_MODULE_6__);
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -73446,6 +73476,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
 
 
 
@@ -73506,7 +73537,7 @@ function Login() {
               response = _context.sent;
 
               if (response.data.auth) {
-                Object(_services__WEBPACK_IMPORTED_MODULE_3__["login"])();
+                Object(_services__WEBPACK_IMPORTED_MODULE_3__["login"])('token-abc');
                 history.push('/contact');
               } else {
                 setError("Dados invalidos!!");
@@ -73535,7 +73566,10 @@ function Login() {
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles__WEBPACK_IMPORTED_MODULE_4__["Container"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles__WEBPACK_IMPORTED_MODULE_4__["Form"], {
     onSubmit: handleAuth
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h3", null, "Login"), error && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", null, error), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("img", {
+    src: _logo_png__WEBPACK_IMPORTED_MODULE_6___default.a,
+    alt: "Logo"
+  }), error && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", null, error), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
     type: "nome",
     placeholder: "Nome",
     onChange: function onChange(ev) {
@@ -73579,7 +73613,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Form", function() { return Form; });
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
 function _templateObject2() {
-  var data = _taggedTemplateLiteral(["\n  width: 400px;\n  background: #fff;\n  padding: 20px;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  h3 {\n    font-size: 30px;\n    align-self: center;\n  }\n  p {\n    color: #ff3333;\n    margin-bottom: 15px;\n    border: 1px solid #ff3333;\n    padding: 10px;\n    width: 100%;\n    text-align: center;\n  }\n  input {\n    flex: 1;\n    height: 46px;\n    margin-bottom: 15px;\n    padding: 10px;\n    color: #777;\n    font-size: 15px;\n    width: 95%;\n    border: 1px solid #ddd;\n    &::placeholder {\n      color: #999;\n    }\n  }\n  button {\n    color: #fff;\n    font-size: 16px;\n    background: #3F85D6;\n    height: 56px;\n    border: 0;\n    border-radius: 5px;\n    width: 100%;\n  }\n  hr {\n    margin: 20px 0;\n    border: none;\n    border-bottom: 1px solid #cdcdcd;\n    width: 100%;\n  }\n  a {\n    font-size: 16;\n    font-weight: bold;\n    color: #999;\n    text-decoration: none;\n  }\n"]);
+  var data = _taggedTemplateLiteral(["\n  width: 400px;\n  background: #fff;\n  padding: 20px;\n  border-radius: 2px;\n  border-color: #64636f;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  box-shadow: 2px 2px 2px 2px #64636f;\n  img {\n    width: 100px;\n    margin: 10px 0 40px;\n    font-size: 30px;\n    align-self: center;\n  }\n  p {\n    color: #ff3333;\n    margin-bottom: 15px;\n    border: 1px solid #ff3333;\n    padding: 10px;\n    width: 100%;\n    text-align: center;\n  }\n  input {\n    flex: 1;\n    height: 46px;\n    margin-bottom: 15px;\n    padding: 10px;\n    color: #777;\n    font-size: 15px;\n    width: 95%;\n    border: 1px solid #ddd;\n    &::placeholder {\n      color: #999;\n    }\n  }\n  button {\n    color: #fff;\n    font-size: 16px;\n    background: #221e5a;\n    height: 56px;\n    border: 0;\n    border-radius: 5px;\n    width: 100%;\n  }\n  hr {\n    margin: 20px 0;\n    border: none;\n    border-bottom: 1px solid #cdcdcd;\n    width: 100%;\n  }\n  a {\n    font-size: 16;\n    font-weight: bold;\n    color: #999;\n    text-decoration: none;\n  }\n"]);
 
   _templateObject2 = function _templateObject2() {
     return data;
@@ -73589,7 +73623,7 @@ function _templateObject2() {
 }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  height: 100vh;\n  background-color: #00000029;\n"]);
+  var data = _taggedTemplateLiteral(["\n  display: flex;\n  flex: 1;\n  align-items: center;\n  justify-content: center;\n  height: 100vh;\n  background-color: #ffffff;\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -73603,6 +73637,17 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 var Container = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].div(_templateObject());
 var Form = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].form(_templateObject2());
+
+/***/ }),
+
+/***/ "./resources/js/components/logo.png":
+/*!******************************************!*\
+  !*** ./resources/js/components/logo.png ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/logo.png?4855250c62b5d272adabb9ba586fef02";
 
 /***/ }),
 

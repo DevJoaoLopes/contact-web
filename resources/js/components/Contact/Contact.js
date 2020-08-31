@@ -1,12 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Container } from "./styles";
 
 
 function Contact() {
     return (
-        <div className="container">
-            Contato Page
-        </div>
+        <Container>
+            
+        </Container>
     );
 }
 
