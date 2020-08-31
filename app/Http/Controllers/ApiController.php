@@ -10,7 +10,7 @@ class ApiController extends Controller
     // funcion fake auth for login
     public function postLogin(Request $request)
     {
-        if($request->email == 'admin' && $request->pass == 'admin'){
+        if($request->email == 'admin@admin' && $request->pass == 'admin'){
             return ["auth" => true];
         }else{
             return ["auth" => false];

@@ -1,16 +1,14 @@
 import axios from 'axios';
 
-export const login = async (email = '', pass = '') => {
-    try {
-        const response = await axios.post('http://localhost:8888/api/auth', {
-            email,
-            pass,
-        });
-        if(response.data.auth) return true;
-        return false;
-    } catch (error) {
-        return error;
-    }
-}
+export const TOKEN_KEY = "fake@token";
 
-export const isAuthenticated = () => login;
+export const isAuthenticated = () => localStorage.getItem(TOKEN_KEY) !== null;
+
+export const getToken = () => localStorage.getItem(TOKEN_KEY);
+
+export const login = token => {
+  localStorage.setItem(TOKEN_KEY, token);
+};
+export const api = axios.create({
+    baseURL: "http://localhost:8888"
+  });
