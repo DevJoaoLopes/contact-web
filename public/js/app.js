@@ -87905,13 +87905,14 @@ function Login() {
               }
 
               setError('Preencha e-mail e senha para continuar!');
-              _context.next = 15;
+              _context.next = 16;
               break;
 
             case 5:
               _context.prev = 5;
               _context.next = 8;
               return _services__WEBPACK_IMPORTED_MODULE_3__["api"].post('/api/auth', {
+                name: name,
                 email: email,
                 pass: pass
               });
@@ -87919,22 +87920,23 @@ function Login() {
             case 8:
               response = _context.sent;
 
-              if (response.data.auth) {
+              if (response.data.success) {
                 Object(_services__WEBPACK_IMPORTED_MODULE_3__["login"])('token-abc');
                 history.push('/contact');
               } else {
-                setError("Dados invalidos!!");
+                setError(response.data.message);
               }
 
-              _context.next = 15;
+              _context.next = 16;
               break;
 
             case 12:
               _context.prev = 12;
               _context.t0 = _context["catch"](5);
+              console.log(_context.t0);
               setError("Erro ao fazer login!");
 
-            case 15:
+            case 16:
             case "end":
               return _context.stop();
           }

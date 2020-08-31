@@ -24,16 +24,18 @@ function Login() {
         } else {
             try {
                 const response = await api.post('/api/auth', {
+                    name,
                     email,
                     pass,
                 });
-                if (response.data.auth) {
+                if (response.data.success) {
                     login('token-abc');
                     history.push('/contact');
                 }else{
-                    setError("Dados invalidos!!")
+                    setError(response.data.message)
                 }
             } catch (error) {
+                console.log(error);
                 setError("Erro ao fazer login!");
             }
         }
