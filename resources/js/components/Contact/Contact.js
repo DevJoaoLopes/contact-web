@@ -44,8 +44,7 @@ function Contact() {
     const [email, setEmail] = React.useState("");
     const [face, setFace] = React.useState("");
     const [linkedin, setLinkedin] = React.useState("");
-    const [number, setNumber] = React.useState("");
-    const [type, setType] = React.useState("Residencial");
+    const [phones, setPhones] = React.useState([{ number: "", type: "" }]);
     const [name, setName] = React.useState("");
     const [showForm, setShowForm] = React.useState(false);
     const [transactions, setTransactions] = React.useState([]);
@@ -61,6 +60,32 @@ function Contact() {
         }
     }, []);
 
+    const changeNumber = (e, ind) => {
+        const newPhones = phones.map((phone, i) => {
+            if (i === ind) {
+                phone.number = e;
+                return phone;
+            }
+            return phone;
+        });
+        setPhones(newPhones);
+    };
+
+    const changeType = (e, ind) => {
+        const newPhones = phones.map((phone, i) => {
+            if (i === ind) {
+                phone.type = e;
+                return phone;
+            }
+            return phone;
+        });
+        setPhones(newPhones);
+    };
+
+    const removePhone = i => {
+        const newPhones = phones.filter((_, ind) => i !== ind);
+        setPhones(newPhones);
+    };
 
     return (
         <Container>
@@ -84,27 +109,45 @@ function Contact() {
                             type="nome"
                             placeholder="Nome"
                             onChange={ev => setName(ev.target.value)}
+                            value={name}
                         />
                         <input
                             type="email"
                             placeholder="Endereço de e-mail"
                             onChange={ev => setEmail(ev.target.value)}
+                            value={email}
                         />
                         <input
                             type="face"
                             placeholder="Link do facebook"
                             onChange={ev => setFace(ev.target.value)}
+                            value={face}
                         />
                         <input
                             type="linkedin"
                             placeholder="Link do linkedin"
                             onChange={ev => setLinkedin(ev.target.value)}
+                            value={linkedin}
                         />
-                        <InputPhone
-                            onNumber={ev => setNumber(ev.target.value)}
-                            onType={ev => setType(ev.target.value)}
-                            valueType={type}
-                        />
+
+                        {phones.map((value, i) => (
+                            <InputPhone
+                                onNumber={ev =>
+                                    changeNumber(ev.target.value, i)
+                                }
+                                onType={ev => changeType(ev.target.value, i)}
+                                valueType={value.type}
+                                valueNumber={value.number}
+                                onAddIcon={() =>
+                                    setPhones([
+                                        ...phones,
+                                        { number: "", type: "" }
+                                    ])
+                                }
+                                onRemoveIcon={() => removePhone(i)}
+                            />
+                        ))}
+
                         <button>Salvar</button>
                     </Form>
                 </ViewForm>

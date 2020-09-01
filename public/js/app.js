@@ -87992,30 +87992,28 @@ function Contact() {
       linkedin = _React$useState8[0],
       setLinkedin = _React$useState8[1];
 
-  var _React$useState9 = react__WEBPACK_IMPORTED_MODULE_0___default.a.useState(""),
+  var _React$useState9 = react__WEBPACK_IMPORTED_MODULE_0___default.a.useState([{
+    number: "",
+    type: ""
+  }]),
       _React$useState10 = _slicedToArray(_React$useState9, 2),
-      number = _React$useState10[0],
-      setNumber = _React$useState10[1];
+      phones = _React$useState10[0],
+      setPhones = _React$useState10[1];
 
-  var _React$useState11 = react__WEBPACK_IMPORTED_MODULE_0___default.a.useState("Residencial"),
+  var _React$useState11 = react__WEBPACK_IMPORTED_MODULE_0___default.a.useState(""),
       _React$useState12 = _slicedToArray(_React$useState11, 2),
-      type = _React$useState12[0],
-      setType = _React$useState12[1];
+      name = _React$useState12[0],
+      setName = _React$useState12[1];
 
-  var _React$useState13 = react__WEBPACK_IMPORTED_MODULE_0___default.a.useState(""),
+  var _React$useState13 = react__WEBPACK_IMPORTED_MODULE_0___default.a.useState(false),
       _React$useState14 = _slicedToArray(_React$useState13, 2),
-      name = _React$useState14[0],
-      setName = _React$useState14[1];
+      showForm = _React$useState14[0],
+      setShowForm = _React$useState14[1];
 
-  var _React$useState15 = react__WEBPACK_IMPORTED_MODULE_0___default.a.useState(false),
+  var _React$useState15 = react__WEBPACK_IMPORTED_MODULE_0___default.a.useState([]),
       _React$useState16 = _slicedToArray(_React$useState15, 2),
-      showForm = _React$useState16[0],
-      setShowForm = _React$useState16[1];
-
-  var _React$useState17 = react__WEBPACK_IMPORTED_MODULE_0___default.a.useState([]),
-      _React$useState18 = _slicedToArray(_React$useState17, 2),
-      transactions = _React$useState18[0],
-      setTransactions = _React$useState18[1]; // get data api
+      transactions = _React$useState16[0],
+      setTransactions = _React$useState16[1]; // get data api
 
 
   react__WEBPACK_IMPORTED_MODULE_0___default.a.useEffect(function () {
@@ -88028,6 +88026,38 @@ function Contact() {
       console.log(error);
     }
   }, []);
+
+  var changeNumber = function changeNumber(e, ind) {
+    var newPhones = phones.map(function (phone, i) {
+      if (i === ind) {
+        phone.number = e;
+        return phone;
+      }
+
+      return phone;
+    });
+    setPhones(newPhones);
+  };
+
+  var changeType = function changeType(e, ind) {
+    var newPhones = phones.map(function (phone, i) {
+      if (i === ind) {
+        phone.type = e;
+        return phone;
+      }
+
+      return phone;
+    });
+    setPhones(newPhones);
+  };
+
+  var removePhone = function removePhone(i) {
+    var newPhones = phones.filter(function (_, ind) {
+      return i !== ind;
+    });
+    setPhones(newPhones);
+  };
+
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles__WEBPACK_IMPORTED_MODULE_13__["Container"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles__WEBPACK_IMPORTED_MODULE_13__["Title"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles__WEBPACK_IMPORTED_MODULE_13__["TextHeader"], null, "Contatos"), showForm ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles__WEBPACK_IMPORTED_MODULE_13__["ButtonCancel"], {
     onClick: function onClick() {
       return setShowForm(false);
@@ -88041,33 +88071,49 @@ function Contact() {
     placeholder: "Nome",
     onChange: function onChange(ev) {
       return setName(ev.target.value);
-    }
+    },
+    value: name
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
     type: "email",
     placeholder: "Endere\xE7o de e-mail",
     onChange: function onChange(ev) {
       return setEmail(ev.target.value);
-    }
+    },
+    value: email
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
     type: "face",
     placeholder: "Link do facebook",
     onChange: function onChange(ev) {
       return setFace(ev.target.value);
-    }
+    },
+    value: face
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
     type: "linkedin",
     placeholder: "Link do linkedin",
     onChange: function onChange(ev) {
       return setLinkedin(ev.target.value);
-    }
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_InputPhone__WEBPACK_IMPORTED_MODULE_12__["default"], {
-    onNumber: function onNumber(ev) {
-      return setNumber(ev.target.value);
     },
-    onType: function onType(ev) {
-      return setType(ev.target.value);
-    },
-    valueType: type
+    value: linkedin
+  }), phones.map(function (value, i) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_InputPhone__WEBPACK_IMPORTED_MODULE_12__["default"], {
+      onNumber: function onNumber(ev) {
+        return changeNumber(ev.target.value, i);
+      },
+      onType: function onType(ev) {
+        return changeType(ev.target.value, i);
+      },
+      valueType: value.type,
+      valueNumber: value.number,
+      onAddIcon: function onAddIcon() {
+        return setPhones([].concat(_toConsumableArray(phones), [{
+          number: "",
+          type: ""
+        }]));
+      },
+      onRemoveIcon: function onRemoveIcon() {
+        return removePhone(i);
+      }
+    });
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, "Salvar"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_List__WEBPACK_IMPORTED_MODULE_3__["default"], {
     className: classes.root
   }, transactions.map(function (value) {
@@ -88145,7 +88191,9 @@ function InputPhone(_ref) {
       _ref$onAddIcon = _ref.onAddIcon,
       onAddIcon = _ref$onAddIcon === void 0 ? function () {} : _ref$onAddIcon,
       _ref$onRemoveIcon = _ref.onRemoveIcon,
-      onRemoveIcon = _ref$onRemoveIcon === void 0 ? function () {} : _ref$onRemoveIcon;
+      onRemoveIcon = _ref$onRemoveIcon === void 0 ? function () {} : _ref$onRemoveIcon,
+      _ref$valueNumber = _ref.valueNumber,
+      valueNumber = _ref$valueNumber === void 0 ? '' : _ref$valueNumber;
   var styleIcon = {
     color: "#999",
     margin: "5px",
@@ -88157,7 +88205,8 @@ function InputPhone(_ref) {
     },
     type: "text",
     placeholder: "Numero",
-    onChange: onNumber
+    onChange: onNumber,
+    value: valueNumber
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
     style: {
       color: "#999",

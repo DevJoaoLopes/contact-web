@@ -7,7 +7,8 @@ function InputPhone({
     onType = () => {},
     valueType,
     onAddIcon = () => {},
-    onRemoveIcon = () => {}
+    onRemoveIcon = () => {},
+    valueNumber = '',
 }) {
     const styleIcon = {
         color: "#999",
@@ -21,6 +22,7 @@ function InputPhone({
                 type="text"
                 placeholder="Numero"
                 onChange={onNumber}
+                value={valueNumber}
             />
             <select
                 style={{
