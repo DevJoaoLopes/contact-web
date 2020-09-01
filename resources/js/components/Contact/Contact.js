@@ -8,6 +8,8 @@ import ListItemText from "@material-ui/core/ListItemText";
 import ListItemAvatar from "@material-ui/core/ListItemAvatar";
 import { api } from "../services";
 import Typography from "@material-ui/core/Typography";
+import FacebookIcon from "@material-ui/icons/Facebook";
+import LinkedInIcon from "@material-ui/icons/LinkedIn";
 
 import {
     Container,
@@ -45,7 +47,7 @@ function Contact() {
 
     React.useEffect(() => {
         try {
-            api.get('/api/contacts').then(({data}) => {
+            api.get("/api/contacts").then(({ data }) => {
                 setTransactions([...data.data]);
             });
         } catch (error) {
@@ -163,6 +165,27 @@ function Contact() {
                                                 <br />
                                             </>
                                         ))}
+                                        <br />
+                                        <div
+                                            style={{
+                                                display: "flex",
+                                                flexDirection: "row"
+                                            }}
+                                        >
+                                            {value.contact.face && (
+                                                <a href={value.contact.face}>
+                                                    <FacebookIcon />
+                                                </a>
+                                            )}
+
+                                            {value.contact.linkedin && (
+                                                <a
+                                                    href={value.contact.linkedin}
+                                                >
+                                                    <LinkedInIcon />
+                                                </a>
+                                            )}
+                                        </div>
                                         <br />
                                         <Button
                                             onClick={() =>
