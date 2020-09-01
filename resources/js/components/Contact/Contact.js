@@ -11,6 +11,8 @@ import Typography from "@material-ui/core/Typography";
 import FacebookIcon from "@material-ui/icons/Facebook";
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
 
+import InputPhone from "./InputPhone";
+
 import {
     Container,
     Title,
@@ -18,6 +20,7 @@ import {
     TextHeader,
     Button,
     ButtonAdd,
+    ButtonCancel,
     Form,
     ViewForm
 } from "./styles";
@@ -35,6 +38,8 @@ const useStyles = makeStyles({
 });
 
 function Contact() {
+    const classes = useStyles();
+
     const [error, setError] = React.useState("");
     const [email, setEmail] = React.useState("");
     const [face, setFace] = React.useState("");
@@ -45,6 +50,7 @@ function Contact() {
     const [showForm, setShowForm] = React.useState(false);
     const [transactions, setTransactions] = React.useState([]);
 
+    // get data api
     React.useEffect(() => {
         try {
             api.get("/api/contacts").then(({ data }) => {
@@ -55,35 +61,20 @@ function Contact() {
         }
     }, []);
 
-    // const DATA = [
-    //     {
-    //         contact: {
-    //             id: 1,
-    //             name: "Joao da Silva",
-    //             email: "joao@joao",
-    //         },
-    //         phones: [
-    //             {
-    //                 number: "11111111",
-    //                 type: "residencial"
-    //             },
-    //             {
-    //                 number: "11111111",
-    //                 type: "celular"
-    //             }
-    //         ]
-    //     },
-    // ];
-
-    const classes = useStyles();
 
     return (
         <Container>
             <Title>
                 <TextHeader>Contatos</TextHeader>
-                <ButtonAdd onClick={() => setShowForm(true)}>
-                    Adicionar
-                </ButtonAdd>
+                {showForm ? (
+                    <ButtonCancel onClick={() => setShowForm(false)}>
+                        Cancelar
+                    </ButtonCancel>
+                ) : (
+                    <ButtonAdd onClick={() => setShowForm(true)}>
+                        Adicionar
+                    </ButtonAdd>
+                )}
             </Title>
             {showForm && (
                 <ViewForm>
@@ -109,33 +100,12 @@ function Contact() {
                             placeholder="Link do linkedin"
                             onChange={ev => setLinkedin(ev.target.value)}
                         />
-                        <div>
-                            <input
-                                style={{ height: "16px" }}
-                                type="text"
-                                placeholder="Numero"
-                                onChange={ev => setNumber(ev.target.value)}
-                            />
-                            <select
-                                style={{
-                                    color: "#999",
-                                    border: "1px solid #ddd",
-                                    height: "38px",
-                                    marginLeft: "35px"
-                                }}
-                                onChange={ev => setType(ev.target.value)}
-                                value={type}
-                            >
-                                <option value="Residencial">Residencial</option>
-                                <option value="Comercial">Comercial</option>
-                                <option value="Celular">Celular</option>
-                            </select>
-                        </div>
+                        <InputPhone
+                            onNumber={ev => setNumber(ev.target.value)}
+                            onType={ev => setType(ev.target.value)}
+                            valueType={type}
+                        />
                         <button>Salvar</button>
-                        <br />
-                        <button onClick={() => setShowForm(true)}>
-                            Cancelar
-                        </button>
                     </Form>
                 </ViewForm>
             )}
@@ -180,7 +150,9 @@ function Contact() {
 
                                             {value.contact.linkedin && (
                                                 <a
-                                                    href={value.contact.linkedin}
+                                                    href={
+                                                        value.contact.linkedin
+                                                    }
                                                 >
                                                     <LinkedInIcon />
                                                 </a>
@@ -191,6 +163,7 @@ function Contact() {
                                             onClick={() =>
                                                 console.log("clicou")
                                             }
+                                            style={{ cursor: "pointer" }}
                                         >
                                             Editar
                                         </Button>

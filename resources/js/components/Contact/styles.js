@@ -60,6 +60,20 @@ export const ButtonAdd = styled.button`
     width: 100px;
     margin-right: 40px;
     align-self: center;
+    cursor: pointer;
+`;
+
+export const ButtonCancel = styled.button`
+    color: #fff;
+    font-size: 16px;
+    background: red;
+    height: 36px;
+    border: 0;
+    border-radius: 5px;
+    width: 100px;
+    margin-right: 40px;
+    align-self: center;
+    cursor: pointer;
 `;
 
 export const Form = styled.form`
@@ -72,6 +86,7 @@ export const Form = styled.form`
     flex-direction: column;
     align-items: center;
     box-shadow: 2px 2px 2px 2px #64636f;
+    margin-top: 100px;
     img {
         width: 100px;
         margin: 10px 0 40px;
