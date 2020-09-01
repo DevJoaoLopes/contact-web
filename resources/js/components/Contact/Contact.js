@@ -6,6 +6,7 @@ import ListItem from "@material-ui/core/ListItem";
 import Divider from "@material-ui/core/Divider";
 import ListItemText from "@material-ui/core/ListItemText";
 import ListItemAvatar from "@material-ui/core/ListItemAvatar";
+import { api } from "../services";
 import Typography from "@material-ui/core/Typography";
 
 import {
@@ -40,47 +41,47 @@ function Contact() {
     const [type, setType] = React.useState("Residencial");
     const [name, setName] = React.useState("");
     const [showForm, setShowForm] = React.useState(false);
-    const DATA = [
-        {
-            id: 1,
-            name: "Joao da Silva",
-            email: "joao@joao",
-            phones: [
-                {
-                    number: "11111111",
-                    type: "residencial"
-                },
-                {
-                    number: "11111111",
-                    type: "celular"
-                }
-            ]
-        },
-        {
-            id: 2,
-            name: "Maria Menezes",
-            email: "maria@maria",
-            phones: [
-                {
-                    number: "22222222",
-                    type: "residencial"
-                },
-                {
-                    number: "23232323",
-                    type: "celular"
-                }
-            ]
+    const [transactions, setTransactions] = React.useState([]);
+
+    React.useEffect(() => {
+        try {
+            api.get('/api/contacts').then(({data}) => {
+                setTransactions([...data.data]);
+            });
+        } catch (error) {
+            console.log(error);
         }
-    ];
+    }, []);
+
+    // const DATA = [
+    //     {
+    //         contact: {
+    //             id: 1,
+    //             name: "Joao da Silva",
+    //             email: "joao@joao",
+    //         },
+    //         phones: [
+    //             {
+    //                 number: "11111111",
+    //                 type: "residencial"
+    //             },
+    //             {
+    //                 number: "11111111",
+    //                 type: "celular"
+    //             }
+    //         ]
+    //     },
+    // ];
 
     const classes = useStyles();
 
-    console.log(type);
     return (
         <Container>
             <Title>
                 <TextHeader>Contatos</TextHeader>
-                <ButtonAdd onClick={() => setShowForm(true)}>Adicionar</ButtonAdd>
+                <ButtonAdd onClick={() => setShowForm(true)}>
+                    Adicionar
+                </ButtonAdd>
             </Title>
             {showForm && (
                 <ViewForm>
@@ -130,22 +131,24 @@ function Contact() {
                         </div>
                         <button>Salvar</button>
                         <br />
-                        <button onClick={() => setShowForm(true)}>Cancelar</button>
+                        <button onClick={() => setShowForm(true)}>
+                            Cancelar
+                        </button>
                     </Form>
                 </ViewForm>
             )}
             <List className={classes.root}>
-                {DATA.map(value => (
+                {transactions.map(value => (
                     <>
                         <ListItem alignItems="flex-start">
                             <ListItemAvatar>
                                 <IconHeader src={Logo} alt="Logo" />
                             </ListItemAvatar>
                             <ListItemText
-                                primary={value.name}
+                                primary={value.contact.name}
                                 secondary={
                                     <React.Fragment>
-                                        {value.email}
+                                        {value.contact.email}
                                         <br />
                                         {value.phones.map(phone => (
                                             <>
