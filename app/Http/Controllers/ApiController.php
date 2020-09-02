@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Contact;
+use App\Mail\newContactMail;
 use App\Phone;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class ApiController extends Controller
 {
@@ -151,6 +153,22 @@ class ApiController extends Controller
         } else {
             return response(["message" => "Erro ao excluir", "error" => "Telefone inexistente"], 400);
         }
+    }
+
+    public function sendMail(Request $request){
+        $contact = new Contact;
+        $contact->name = $request->name;
+        $contact->email = $request->email;
+     
+        // return new \App\Mail\newContactMail($contact);
+        $sendmail = Mail::send(new newContactMail($contact));
+
+        if(empty($sendmail)){
+            return response(["message" => "Enviado com sucesso"], 200);
+        }else {
+            return response(["message" => "Falha no envio"], 400);
+        }
+
     }
 
 }

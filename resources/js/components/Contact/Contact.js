@@ -96,7 +96,7 @@ function Contact() {
     const removePhone = (i, removes) => {
         const newPhones = phones.filter((_, index) => i !== index);
         setPhones(newPhones);
-        if(removes != '')  setRemovePhones([...removePhones, removes]);
+        if (removes != "") setRemovePhones([...removePhones, removes]);
     };
 
     const handleAddContact = async event => {
@@ -121,7 +121,20 @@ function Contact() {
                             });
                         });
                     }
-                    window.location.reload(false);
+                    api.post("/api/mail", {
+                        email,
+                        name
+                    })
+                        .then(res => {
+                            if (res.status == 200) {
+                                window.location.reload(false);
+                            } else {
+                                setError(res.data.message);
+                            }
+                        })
+                        .catch(err => {
+                            console.log(err);
+                        });
                 } else {
                     setError(response.data.message);
                 }
@@ -155,7 +168,7 @@ function Contact() {
         setPhones([...data.phones]);
         setShowFormEdit(true);
     };
-    
+
     const handleUpdateContact = async event => {
         event.preventDefault();
         if (!email || !name) {

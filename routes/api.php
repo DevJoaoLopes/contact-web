@@ -32,3 +32,6 @@ Route::post('/phones', 'ApiController@postPhone');
 Route::get('/phones', 'ApiController@getPhones');
 Route::put('/edit/phone', 'ApiController@editPhone');
 Route::post('/delete/phone', 'ApiController@deletePhone');
+
+//Mail
+Route::post('/mail', 'ApiController@sendMail');

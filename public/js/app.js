@@ -88117,7 +88117,7 @@ function Contact() {
       return i !== index;
     });
     setPhones(newPhones);
-    if (removes != '') setRemovePhones([].concat(_toConsumableArray(removePhones), [removes]));
+    if (removes != "") setRemovePhones([].concat(_toConsumableArray(removePhones), [removes]));
   };
 
   var handleAddContact = /*#__PURE__*/function () {
@@ -88180,7 +88180,18 @@ function Contact() {
                   }());
                 }
 
-                window.location.reload(false);
+                _services__WEBPACK_IMPORTED_MODULE_9__["api"].post("/api/mail", {
+                  email: email,
+                  name: name
+                }).then(function (res) {
+                  if (res.status == 200) {
+                    window.location.reload(false);
+                  } else {
+                    setError(res.data.message);
+                  }
+                })["catch"](function (err) {
+                  console.log(err);
+                });
               } else {
                 setError(response.data.message);
               }
