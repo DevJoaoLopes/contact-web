@@ -35,7 +35,6 @@ function Login() {
                     setError(response.data.message)
                 }
             } catch (error) {
-                console.log(error);
                 setError("Erro ao fazer login!");
             }
         }

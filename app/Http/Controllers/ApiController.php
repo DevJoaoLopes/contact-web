@@ -58,8 +58,9 @@ class ApiController extends Controller
             $contact->face = $request->face;
             $contact->linkedin = $request->linkedin;
             $contact->save();
+            $contact->id;
             if (isset($contact)) {
-                return response(["message" => "Contato Cadastrado!!"], 200);
+                return response(["message" => "Contato Cadastrado!!", "id" => $contact->id], 200);
             }
         } catch (\Exception $e) {
             return response(["message" => "Erro ao cadastrar", "error" => $e], 500);
@@ -74,7 +75,7 @@ class ApiController extends Controller
             Contact::destroy($contact->id);
             return response(["message" => "Excluido com sucesso"], 200);
         } else {
-            return response(["message" => "Erro ao excluir", "error" => "Contato inexistente"], 200);
+            return response(["message" => "Erro ao excluir", "error" => "Contato inexistente"], 400);
         }
     }
 

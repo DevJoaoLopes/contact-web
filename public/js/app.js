@@ -6052,6 +6052,35 @@ exports.default = _default;
 
 /***/ }),
 
+/***/ "./node_modules/@material-ui/icons/Delete.js":
+/*!***************************************************!*\
+  !*** ./node_modules/@material-ui/icons/Delete.js ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ "./node_modules/@babel/runtime/helpers/interopRequireDefault.js");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var _createSvgIcon = _interopRequireDefault(__webpack_require__(/*! ./utils/createSvgIcon */ "./node_modules/@material-ui/icons/utils/createSvgIcon.js"));
+
+var _default = (0, _createSvgIcon.default)(_react.default.createElement("path", {
+  d: "M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
+}), 'Delete');
+
+exports.default = _default;
+
+/***/ }),
+
 /***/ "./node_modules/@material-ui/icons/Facebook.js":
 /*!*****************************************************!*\
   !*** ./node_modules/@material-ui/icons/Facebook.js ***!
@@ -87903,26 +87932,36 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/index.js");
-/* harmony import */ var _material_ui_core_List__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/List */ "./node_modules/@material-ui/core/esm/List/index.js");
-/* harmony import */ var _material_ui_core_ListItem__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/ListItem */ "./node_modules/@material-ui/core/esm/ListItem/index.js");
-/* harmony import */ var _material_ui_core_Divider__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/Divider */ "./node_modules/@material-ui/core/esm/Divider/index.js");
-/* harmony import */ var _material_ui_core_ListItemText__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/ListItemText */ "./node_modules/@material-ui/core/esm/ListItemText/index.js");
-/* harmony import */ var _material_ui_core_ListItemAvatar__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/core/ListItemAvatar */ "./node_modules/@material-ui/core/esm/ListItemAvatar/index.js");
-/* harmony import */ var _services__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../services */ "./resources/js/components/services.js");
-/* harmony import */ var _material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @material-ui/core/Typography */ "./node_modules/@material-ui/core/esm/Typography/index.js");
-/* harmony import */ var _material_ui_icons_Facebook__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @material-ui/icons/Facebook */ "./node_modules/@material-ui/icons/Facebook.js");
-/* harmony import */ var _material_ui_icons_Facebook__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_Facebook__WEBPACK_IMPORTED_MODULE_10__);
-/* harmony import */ var _material_ui_icons_LinkedIn__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @material-ui/icons/LinkedIn */ "./node_modules/@material-ui/icons/LinkedIn.js");
-/* harmony import */ var _material_ui_icons_LinkedIn__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_LinkedIn__WEBPACK_IMPORTED_MODULE_11__);
-/* harmony import */ var _InputPhone__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./InputPhone */ "./resources/js/components/Contact/InputPhone.js");
-/* harmony import */ var _styles__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./styles */ "./resources/js/components/Contact/styles.js");
-/* harmony import */ var _logo_png__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../logo.png */ "./resources/js/components/logo.png");
-/* harmony import */ var _logo_png__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(_logo_png__WEBPACK_IMPORTED_MODULE_14__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/index.js");
+/* harmony import */ var _material_ui_core_List__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/List */ "./node_modules/@material-ui/core/esm/List/index.js");
+/* harmony import */ var _material_ui_core_ListItem__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/ListItem */ "./node_modules/@material-ui/core/esm/ListItem/index.js");
+/* harmony import */ var _material_ui_core_Divider__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/Divider */ "./node_modules/@material-ui/core/esm/Divider/index.js");
+/* harmony import */ var _material_ui_core_ListItemText__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/core/ListItemText */ "./node_modules/@material-ui/core/esm/ListItemText/index.js");
+/* harmony import */ var _material_ui_core_ListItemAvatar__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @material-ui/core/ListItemAvatar */ "./node_modules/@material-ui/core/esm/ListItemAvatar/index.js");
+/* harmony import */ var _services__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../services */ "./resources/js/components/services.js");
+/* harmony import */ var _material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @material-ui/core/Typography */ "./node_modules/@material-ui/core/esm/Typography/index.js");
+/* harmony import */ var _material_ui_icons_Facebook__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @material-ui/icons/Facebook */ "./node_modules/@material-ui/icons/Facebook.js");
+/* harmony import */ var _material_ui_icons_Facebook__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_Facebook__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var _material_ui_icons_LinkedIn__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @material-ui/icons/LinkedIn */ "./node_modules/@material-ui/icons/LinkedIn.js");
+/* harmony import */ var _material_ui_icons_LinkedIn__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_LinkedIn__WEBPACK_IMPORTED_MODULE_12__);
+/* harmony import */ var _material_ui_icons_Delete__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @material-ui/icons/Delete */ "./node_modules/@material-ui/icons/Delete.js");
+/* harmony import */ var _material_ui_icons_Delete__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_Delete__WEBPACK_IMPORTED_MODULE_13__);
+/* harmony import */ var _InputPhone__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./InputPhone */ "./resources/js/components/Contact/InputPhone.js");
+/* harmony import */ var _styles__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./styles */ "./resources/js/components/Contact/styles.js");
+/* harmony import */ var _logo_png__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../logo.png */ "./resources/js/components/logo.png");
+/* harmony import */ var _logo_png__WEBPACK_IMPORTED_MODULE_16___default = /*#__PURE__*/__webpack_require__.n(_logo_png__WEBPACK_IMPORTED_MODULE_16__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -87958,7 +87997,8 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-var useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_2__["makeStyles"])({
+
+var useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_3__["makeStyles"])({
   root: {
     width: "100%",
     maxWidth: "36ch",
@@ -87971,54 +88011,59 @@ var useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_2__["ma
 
 function Contact() {
   var classes = useStyles();
+  var styleIcon = {
+    color: "#999",
+    marginLeft: "10px",
+    cursor: "pointer"
+  };
 
-  var _React$useState = react__WEBPACK_IMPORTED_MODULE_0___default.a.useState(""),
+  var _React$useState = react__WEBPACK_IMPORTED_MODULE_1___default.a.useState(""),
       _React$useState2 = _slicedToArray(_React$useState, 2),
       error = _React$useState2[0],
       setError = _React$useState2[1];
 
-  var _React$useState3 = react__WEBPACK_IMPORTED_MODULE_0___default.a.useState(""),
+  var _React$useState3 = react__WEBPACK_IMPORTED_MODULE_1___default.a.useState(""),
       _React$useState4 = _slicedToArray(_React$useState3, 2),
       email = _React$useState4[0],
       setEmail = _React$useState4[1];
 
-  var _React$useState5 = react__WEBPACK_IMPORTED_MODULE_0___default.a.useState(""),
+  var _React$useState5 = react__WEBPACK_IMPORTED_MODULE_1___default.a.useState(""),
       _React$useState6 = _slicedToArray(_React$useState5, 2),
       face = _React$useState6[0],
       setFace = _React$useState6[1];
 
-  var _React$useState7 = react__WEBPACK_IMPORTED_MODULE_0___default.a.useState(""),
+  var _React$useState7 = react__WEBPACK_IMPORTED_MODULE_1___default.a.useState(""),
       _React$useState8 = _slicedToArray(_React$useState7, 2),
       linkedin = _React$useState8[0],
       setLinkedin = _React$useState8[1];
 
-  var _React$useState9 = react__WEBPACK_IMPORTED_MODULE_0___default.a.useState([{
+  var _React$useState9 = react__WEBPACK_IMPORTED_MODULE_1___default.a.useState([{
     number: "",
-    type: ""
+    type: "Residencial"
   }]),
       _React$useState10 = _slicedToArray(_React$useState9, 2),
       phones = _React$useState10[0],
       setPhones = _React$useState10[1];
 
-  var _React$useState11 = react__WEBPACK_IMPORTED_MODULE_0___default.a.useState(""),
+  var _React$useState11 = react__WEBPACK_IMPORTED_MODULE_1___default.a.useState(""),
       _React$useState12 = _slicedToArray(_React$useState11, 2),
       name = _React$useState12[0],
       setName = _React$useState12[1];
 
-  var _React$useState13 = react__WEBPACK_IMPORTED_MODULE_0___default.a.useState(false),
+  var _React$useState13 = react__WEBPACK_IMPORTED_MODULE_1___default.a.useState(false),
       _React$useState14 = _slicedToArray(_React$useState13, 2),
       showForm = _React$useState14[0],
       setShowForm = _React$useState14[1];
 
-  var _React$useState15 = react__WEBPACK_IMPORTED_MODULE_0___default.a.useState([]),
+  var _React$useState15 = react__WEBPACK_IMPORTED_MODULE_1___default.a.useState([]),
       _React$useState16 = _slicedToArray(_React$useState15, 2),
       transactions = _React$useState16[0],
       setTransactions = _React$useState16[1]; // get data api
 
 
-  react__WEBPACK_IMPORTED_MODULE_0___default.a.useEffect(function () {
+  react__WEBPACK_IMPORTED_MODULE_1___default.a.useEffect(function () {
     try {
-      _services__WEBPACK_IMPORTED_MODULE_8__["api"].get("/api/contacts").then(function (_ref) {
+      _services__WEBPACK_IMPORTED_MODULE_9__["api"].get("/api/contacts").then(function (_ref) {
         var data = _ref.data;
         setTransactions(_toConsumableArray(data.data));
       });
@@ -88027,9 +88072,9 @@ function Contact() {
     }
   }, []);
 
-  var changeNumber = function changeNumber(e, ind) {
+  var changeNumber = function changeNumber(e, index) {
     var newPhones = phones.map(function (phone, i) {
-      if (i === ind) {
+      if (i === index) {
         phone.number = e;
         return phone;
       }
@@ -88039,9 +88084,9 @@ function Contact() {
     setPhones(newPhones);
   };
 
-  var changeType = function changeType(e, ind) {
+  var changeType = function changeType(e, index) {
     var newPhones = phones.map(function (phone, i) {
-      if (i === ind) {
+      if (i === index) {
         phone.type = e;
         return phone;
       }
@@ -88052,50 +88097,168 @@ function Contact() {
   };
 
   var removePhone = function removePhone(i) {
-    var newPhones = phones.filter(function (_, ind) {
-      return i !== ind;
+    var newPhones = phones.filter(function (_, index) {
+      return i !== index;
     });
     setPhones(newPhones);
   };
 
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles__WEBPACK_IMPORTED_MODULE_13__["Container"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles__WEBPACK_IMPORTED_MODULE_13__["Title"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles__WEBPACK_IMPORTED_MODULE_13__["TextHeader"], null, "Contatos"), showForm ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles__WEBPACK_IMPORTED_MODULE_13__["ButtonCancel"], {
+  var handleAddContact = /*#__PURE__*/function () {
+    var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(event) {
+      var response;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              event.preventDefault();
+
+              if (!(!email || !name)) {
+                _context2.next = 5;
+                break;
+              }
+
+              setError("Preencha nome e e-mail para continuar!");
+              _context2.next = 15;
+              break;
+
+            case 5:
+              _context2.prev = 5;
+              _context2.next = 8;
+              return _services__WEBPACK_IMPORTED_MODULE_9__["api"].post("/api/contacts", {
+                name: name,
+                email: email,
+                face: face,
+                linkedin: linkedin
+              });
+
+            case 8:
+              response = _context2.sent;
+
+              if (response.status == 200) {
+                if (phones[0].number) {
+                  phones.forEach( /*#__PURE__*/function () {
+                    var _ref3 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(element) {
+                      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+                        while (1) {
+                          switch (_context.prev = _context.next) {
+                            case 0:
+                              _context.next = 2;
+                              return _services__WEBPACK_IMPORTED_MODULE_9__["api"].post("/api/phones", {
+                                number: element.number,
+                                type: element.type,
+                                contact_id: response.data.id
+                              });
+
+                            case 2:
+                            case "end":
+                              return _context.stop();
+                          }
+                        }
+                      }, _callee);
+                    }));
+
+                    return function (_x2) {
+                      return _ref3.apply(this, arguments);
+                    };
+                  }());
+                }
+
+                window.location.reload(false);
+              } else {
+                setError(response.data.message);
+              }
+
+              _context2.next = 15;
+              break;
+
+            case 12:
+              _context2.prev = 12;
+              _context2.t0 = _context2["catch"](5);
+              setError("Erro !!");
+
+            case 15:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2, null, [[5, 12]]);
+    }));
+
+    return function handleAddContact(_x) {
+      return _ref2.apply(this, arguments);
+    };
+  }();
+
+  var handleDelete = /*#__PURE__*/function () {
+    var _ref4 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(id) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              _context3.next = 2;
+              return _services__WEBPACK_IMPORTED_MODULE_9__["api"].post("/api/delete/contact", {
+                id: id
+              }).then(function (res) {
+                if (res.status == 200) {
+                  window.location.reload(false);
+                } else {
+                  console.log(res.data.error);
+                }
+              });
+
+            case 2:
+            case "end":
+              return _context3.stop();
+          }
+        }
+      }, _callee3);
+    }));
+
+    return function handleDelete(_x3) {
+      return _ref4.apply(this, arguments);
+    };
+  }();
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles__WEBPACK_IMPORTED_MODULE_15__["Container"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles__WEBPACK_IMPORTED_MODULE_15__["Title"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles__WEBPACK_IMPORTED_MODULE_15__["TextHeader"], null, "Contatos"), showForm ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles__WEBPACK_IMPORTED_MODULE_15__["ButtonCancel"], {
     onClick: function onClick() {
       return setShowForm(false);
     }
-  }, "Cancelar") : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles__WEBPACK_IMPORTED_MODULE_13__["ButtonAdd"], {
+  }, "Cancelar") : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles__WEBPACK_IMPORTED_MODULE_15__["ButtonAdd"], {
     onClick: function onClick() {
       return setShowForm(true);
     }
-  }, "Adicionar")), showForm && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles__WEBPACK_IMPORTED_MODULE_13__["ViewForm"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles__WEBPACK_IMPORTED_MODULE_13__["Form"], null, error && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, error), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+  }, "Adicionar")), showForm && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles__WEBPACK_IMPORTED_MODULE_15__["ViewForm"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles__WEBPACK_IMPORTED_MODULE_15__["Form"], {
+    onSubmit: handleAddContact
+  }, error && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", null, error), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
     type: "nome",
     placeholder: "Nome",
     onChange: function onChange(ev) {
       return setName(ev.target.value);
     },
     value: name
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
     type: "email",
     placeholder: "Endere\xE7o de e-mail",
     onChange: function onChange(ev) {
       return setEmail(ev.target.value);
     },
     value: email
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
     type: "face",
-    placeholder: "Link do facebook",
+    placeholder: "Ex: https://pt-br.facebook.com",
     onChange: function onChange(ev) {
       return setFace(ev.target.value);
     },
     value: face
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
     type: "linkedin",
-    placeholder: "Link do linkedin",
+    placeholder: "Ex: https://www.linkedin.com",
     onChange: function onChange(ev) {
       return setLinkedin(ev.target.value);
     },
     value: linkedin
   }), phones.map(function (value, i) {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_InputPhone__WEBPACK_IMPORTED_MODULE_12__["default"], {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_InputPhone__WEBPACK_IMPORTED_MODULE_14__["default"], {
       onNumber: function onNumber(ev) {
         return changeNumber(ev.target.value, i);
       },
@@ -88107,48 +88270,62 @@ function Contact() {
       onAddIcon: function onAddIcon() {
         return setPhones([].concat(_toConsumableArray(phones), [{
           number: "",
-          type: ""
+          type: "Residencial"
         }]));
       },
       onRemoveIcon: function onRemoveIcon() {
         return removePhone(i);
       }
     });
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, "Salvar"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_List__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
+    type: "submit"
+  }, "Salvar"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_core_List__WEBPACK_IMPORTED_MODULE_4__["default"], {
     className: classes.root
   }, transactions.map(function (value) {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_ListItem__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_1___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_core_ListItem__WEBPACK_IMPORTED_MODULE_5__["default"], {
       alignItems: "flex-start"
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_ListItemAvatar__WEBPACK_IMPORTED_MODULE_7__["default"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles__WEBPACK_IMPORTED_MODULE_13__["IconHeader"], {
-      src: _logo_png__WEBPACK_IMPORTED_MODULE_14___default.a,
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_core_ListItemAvatar__WEBPACK_IMPORTED_MODULE_8__["default"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles__WEBPACK_IMPORTED_MODULE_15__["IconHeader"], {
+      src: _logo_png__WEBPACK_IMPORTED_MODULE_16___default.a,
       alt: "Logo"
-    })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_ListItemText__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_core_ListItemText__WEBPACK_IMPORTED_MODULE_7__["default"], {
       primary: value.contact.name,
-      secondary: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, value.contact.email, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), value.phones.map(function (phone) {
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_9__["default"], {
+      secondary: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_1___default.a.Fragment, null, value.contact.email, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("br", null), value.phones.map(function (phone) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_1___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_10__["default"], {
           component: "span",
           variant: "body2",
           className: classes.inline,
           color: "textPrimary"
-        }, "".concat(phone.type, ": ").concat(phone.number)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null));
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        }, "".concat(phone.type, ": ").concat(phone.number)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("br", null));
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         style: {
           display: "flex",
           flexDirection: "row"
         }
-      }, value.contact.face && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+      }, value.contact.face && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("a", {
         href: value.contact.face
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_icons_Facebook__WEBPACK_IMPORTED_MODULE_10___default.a, null)), value.contact.linkedin && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_icons_Facebook__WEBPACK_IMPORTED_MODULE_11___default.a, null)), value.contact.linkedin && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("a", {
         href: value.contact.linkedin
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_icons_LinkedIn__WEBPACK_IMPORTED_MODULE_11___default.a, null))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles__WEBPACK_IMPORTED_MODULE_13__["Button"], {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_icons_LinkedIn__WEBPACK_IMPORTED_MODULE_12___default.a, null))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+        style: {
+          width: "100%",
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "space-between"
+        }
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles__WEBPACK_IMPORTED_MODULE_15__["Button"], {
         onClick: function onClick() {
           return console.log("clicou");
         },
         style: {
           cursor: "pointer"
         }
-      }, "Editar"))
-    })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Divider__WEBPACK_IMPORTED_MODULE_5__["default"], {
+      }, "Editar"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_icons_Delete__WEBPACK_IMPORTED_MODULE_13___default.a, {
+        style: styleIcon,
+        onClick: function onClick() {
+          return handleDelete(value.contact.id);
+        }
+      })))
+    })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_core_Divider__WEBPACK_IMPORTED_MODULE_6__["default"], {
       variant: "inset",
       component: "li"
     }));
@@ -88158,7 +88335,7 @@ function Contact() {
 /* harmony default export */ __webpack_exports__["default"] = (Contact);
 
 if (document.getElementById("contact")) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Contact, null), document.getElementById("contact"));
+  react_dom__WEBPACK_IMPORTED_MODULE_2___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(Contact, null), document.getElementById("contact"));
 }
 
 /***/ }),
@@ -88257,7 +88434,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Form", function() { return Form; });
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
 function _templateObject9() {
-  var data = _taggedTemplateLiteral(["\n    width: 400px;\n    background: #fff;\n    padding: 20px;\n    border-radius: 2px;\n    border-color: #64636f;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    box-shadow: 2px 2px 2px 2px #64636f;\n    margin-top: 100px;\n    img {\n        width: 100px;\n        margin: 10px 0 40px;\n        font-size: 30px;\n        align-self: center;\n    }\n    p {\n        color: #ff3333;\n        margin-bottom: 15px;\n        border: 1px solid #ff3333;\n        padding: 10px;\n        width: 100%;\n        text-align: center;\n    }\n    input {\n        flex: 1;\n        height: 46px;\n        margin-bottom: 15px;\n        padding: 10px;\n        color: #777;\n        font-size: 15px;\n        width: 95%;\n        border: 1px solid #ddd;\n        &::placeholder {\n            color: #999;\n        }\n    }\n    button {\n        color: #fff;\n        font-size: 16px;\n        background: #221e5a;\n        height: 56px;\n        border: 0;\n        border-radius: 5px;\n        width: 100%;\n    }\n    hr {\n        margin: 20px 0;\n        border: none;\n        border-bottom: 1px solid #cdcdcd;\n        width: 100%;\n    }\n    a {\n        font-size: 16;\n        font-weight: bold;\n        color: #999;\n        text-decoration: none;\n    }\n    div {\n        width: 100%;\n        flex-direction: row;\n        display: flex;\n    }\n"]);
+  var data = _taggedTemplateLiteral(["\n    width: 400px;\n    background: #fff;\n    padding: 20px;\n    border-radius: 2px;\n    border-color: #64636f;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    box-shadow: 2px 2px 2px 2px #64636f;\n    margin-top: 100px;\n    img {\n        width: 100px;\n        margin: 10px 0 40px;\n        font-size: 30px;\n        align-self: center;\n    }\n    p {\n        color: #ff3333;\n        margin-bottom: 15px;\n        border: 1px solid #ff3333;\n        padding: 10px;\n        width: 100%;\n        text-align: center;\n    }\n    input {\n        flex: 1;\n        height: 46px;\n        margin-bottom: 15px;\n        padding: 10px;\n        color: #777;\n        font-size: 15px;\n        width: 95%;\n        border: 1px solid #ddd;\n        &::placeholder {\n            color: #999;\n        }\n    }\n    button {\n        color: #fff;\n        font-size: 16px;\n        background: #221e5a;\n        height: 56px;\n        border: 0;\n        border-radius: 5px;\n        width: 100%;\n        cursor: pointer;\n    }\n    hr {\n        margin: 20px 0;\n        border: none;\n        border-bottom: 1px solid #cdcdcd;\n        width: 100%;\n    }\n    a {\n        font-size: 16;\n        font-weight: bold;\n        color: #999;\n        text-decoration: none;\n    }\n    div {\n        width: 100%;\n        flex-direction: row;\n        display: flex;\n    }\n"]);
 
   _templateObject9 = function _templateObject9() {
     return data;
@@ -88444,7 +88621,7 @@ function Login() {
               }
 
               setError('Preencha e-mail e senha para continuar!');
-              _context.next = 16;
+              _context.next = 15;
               break;
 
             case 5:
@@ -88466,16 +88643,15 @@ function Login() {
                 setError(response.data.message);
               }
 
-              _context.next = 16;
+              _context.next = 15;
               break;
 
             case 12:
               _context.prev = 12;
               _context.t0 = _context["catch"](5);
-              console.log(_context.t0);
               setError("Erro ao fazer login!");
 
-            case 16:
+            case 15:
             case "end":
               return _context.stop();
           }
