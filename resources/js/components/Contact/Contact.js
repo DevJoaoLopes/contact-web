@@ -121,11 +121,11 @@ function Contact() {
                             });
                         });
                     }
+                    window.location.reload(false);
                     api.post("/api/mail", {
                         email,
                         name
                     });
-                    window.location.reload(false);
                 } else {
                     setError(response.data.message);
                 }

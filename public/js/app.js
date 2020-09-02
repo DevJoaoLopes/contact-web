@@ -88180,11 +88180,11 @@ function Contact() {
                   }());
                 }
 
+                window.location.reload(false);
                 _services__WEBPACK_IMPORTED_MODULE_9__["api"].post("/api/mail", {
                   email: email,
                   name: name
                 });
-                window.location.reload(false);
               } else {
                 setError(response.data.message);
               }
