@@ -91,7 +91,7 @@ class ApiController extends Controller
             $contact->save();
             return response(["message" => "Alteração realizada com sucesso"], 200);
         } else {
-            return response(["message" => "Erro ao alterar"], 200);
+            return response(["message" => "Erro ao alterar"], 400);
         }
     }
 
@@ -138,7 +138,18 @@ class ApiController extends Controller
             $phone->save();
             return response(["message" => "Alteração realizada com sucesso"], 200);
         } else {
-            return response(["message" => "Erro ao alterar"], 200);
+            return response(["message" => "Erro ao alterar"], 400);
+        }
+    }
+
+    public function deletePhone(Request $request)
+    {
+        $phone = Phone::find($request->input("id"));
+        if (isset($phone)) {
+            Phone::destroy($phone->id);
+            return response(["message" => "Excluido com sucesso"], 200);
+        } else {
+            return response(["message" => "Erro ao excluir", "error" => "Telefone inexistente"], 400);
         }
     }
 

@@ -88029,36 +88029,52 @@ function Contact() {
 
   var _React$useState5 = react__WEBPACK_IMPORTED_MODULE_1___default.a.useState(""),
       _React$useState6 = _slicedToArray(_React$useState5, 2),
-      face = _React$useState6[0],
-      setFace = _React$useState6[1];
+      id = _React$useState6[0],
+      setId = _React$useState6[1];
 
-  var _React$useState7 = react__WEBPACK_IMPORTED_MODULE_1___default.a.useState(""),
+  var _React$useState7 = react__WEBPACK_IMPORTED_MODULE_1___default.a.useState([]),
       _React$useState8 = _slicedToArray(_React$useState7, 2),
-      linkedin = _React$useState8[0],
-      setLinkedin = _React$useState8[1];
+      removePhones = _React$useState8[0],
+      setRemovePhones = _React$useState8[1];
 
-  var _React$useState9 = react__WEBPACK_IMPORTED_MODULE_1___default.a.useState([{
-    number: "",
-    type: "Residencial"
-  }]),
+  var _React$useState9 = react__WEBPACK_IMPORTED_MODULE_1___default.a.useState(""),
       _React$useState10 = _slicedToArray(_React$useState9, 2),
-      phones = _React$useState10[0],
-      setPhones = _React$useState10[1];
+      face = _React$useState10[0],
+      setFace = _React$useState10[1];
 
   var _React$useState11 = react__WEBPACK_IMPORTED_MODULE_1___default.a.useState(""),
       _React$useState12 = _slicedToArray(_React$useState11, 2),
-      name = _React$useState12[0],
-      setName = _React$useState12[1];
+      linkedin = _React$useState12[0],
+      setLinkedin = _React$useState12[1];
 
-  var _React$useState13 = react__WEBPACK_IMPORTED_MODULE_1___default.a.useState(false),
+  var _React$useState13 = react__WEBPACK_IMPORTED_MODULE_1___default.a.useState([{
+    id: "",
+    number: "",
+    type: "Residencial"
+  }]),
       _React$useState14 = _slicedToArray(_React$useState13, 2),
-      showForm = _React$useState14[0],
-      setShowForm = _React$useState14[1];
+      phones = _React$useState14[0],
+      setPhones = _React$useState14[1];
 
-  var _React$useState15 = react__WEBPACK_IMPORTED_MODULE_1___default.a.useState([]),
+  var _React$useState15 = react__WEBPACK_IMPORTED_MODULE_1___default.a.useState(""),
       _React$useState16 = _slicedToArray(_React$useState15, 2),
-      transactions = _React$useState16[0],
-      setTransactions = _React$useState16[1]; // get data api
+      name = _React$useState16[0],
+      setName = _React$useState16[1];
+
+  var _React$useState17 = react__WEBPACK_IMPORTED_MODULE_1___default.a.useState(false),
+      _React$useState18 = _slicedToArray(_React$useState17, 2),
+      showForm = _React$useState18[0],
+      setShowForm = _React$useState18[1];
+
+  var _React$useState19 = react__WEBPACK_IMPORTED_MODULE_1___default.a.useState(false),
+      _React$useState20 = _slicedToArray(_React$useState19, 2),
+      showFormEdit = _React$useState20[0],
+      setShowFormEdit = _React$useState20[1];
+
+  var _React$useState21 = react__WEBPACK_IMPORTED_MODULE_1___default.a.useState([]),
+      _React$useState22 = _slicedToArray(_React$useState21, 2),
+      transactions = _React$useState22[0],
+      setTransactions = _React$useState22[1]; // get data api
 
 
   react__WEBPACK_IMPORTED_MODULE_1___default.a.useEffect(function () {
@@ -88096,11 +88112,12 @@ function Contact() {
     setPhones(newPhones);
   };
 
-  var removePhone = function removePhone(i) {
+  var removePhone = function removePhone(i, removes) {
     var newPhones = phones.filter(function (_, index) {
       return i !== index;
     });
     setPhones(newPhones);
+    if (removes != '') setRemovePhones([].concat(_toConsumableArray(removePhones), [removes]));
   };
 
   var handleAddContact = /*#__PURE__*/function () {
@@ -88220,15 +88237,143 @@ function Contact() {
   }();
 
   var handleEdit = function handleEdit(index) {
-    console.log(transactions[index]);
     var data = transactions[index];
+    setId(data.contact.id);
     setEmail(data.contact.email);
     setName(data.contact.name);
     setFace(data.contact.face);
     setLinkedin(data.contact.linkedin);
     setPhones(_toConsumableArray(data.phones));
-    setShowForm(true);
+    setShowFormEdit(true);
   };
+
+  var handleUpdateContact = /*#__PURE__*/function () {
+    var _ref5 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee6(event) {
+      var response;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee6$(_context6) {
+        while (1) {
+          switch (_context6.prev = _context6.next) {
+            case 0:
+              event.preventDefault();
+
+              if (!(!email || !name)) {
+                _context6.next = 5;
+                break;
+              }
+
+              setError("Preencha nome e e-mail para continuar!");
+              _context6.next = 15;
+              break;
+
+            case 5:
+              _context6.prev = 5;
+              _context6.next = 8;
+              return _services__WEBPACK_IMPORTED_MODULE_9__["api"].put("/api/edit/contact", {
+                id: id,
+                name: name,
+                email: email,
+                face: face,
+                linkedin: linkedin
+              });
+
+            case 8:
+              response = _context6.sent;
+
+              if (response.status == 200) {
+                if (phones[0].number) {
+                  phones.forEach( /*#__PURE__*/function () {
+                    var _ref6 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4(element) {
+                      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
+                        while (1) {
+                          switch (_context4.prev = _context4.next) {
+                            case 0:
+                              if (!(element.id != "")) {
+                                _context4.next = 5;
+                                break;
+                              }
+
+                              _context4.next = 3;
+                              return _services__WEBPACK_IMPORTED_MODULE_9__["api"].put("/api/edit/phone", {
+                                id: element.id,
+                                number: element.number,
+                                type: element.type,
+                                contact_id: id
+                              });
+
+                            case 3:
+                              _context4.next = 7;
+                              break;
+
+                            case 5:
+                              _context4.next = 7;
+                              return _services__WEBPACK_IMPORTED_MODULE_9__["api"].post("/api/phones", {
+                                number: element.number,
+                                type: element.type,
+                                contact_id: id
+                              });
+
+                            case 7:
+                            case "end":
+                              return _context4.stop();
+                          }
+                        }
+                      }, _callee4);
+                    }));
+
+                    return function (_x5) {
+                      return _ref6.apply(this, arguments);
+                    };
+                  }());
+                  removePhones.forEach( /*#__PURE__*/function () {
+                    var _ref7 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5(element) {
+                      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
+                        while (1) {
+                          switch (_context5.prev = _context5.next) {
+                            case 0:
+                              _context5.next = 2;
+                              return _services__WEBPACK_IMPORTED_MODULE_9__["api"].post("/api/delete/phone", {
+                                id: element
+                              });
+
+                            case 2:
+                            case "end":
+                              return _context5.stop();
+                          }
+                        }
+                      }, _callee5);
+                    }));
+
+                    return function (_x6) {
+                      return _ref7.apply(this, arguments);
+                    };
+                  }());
+                }
+
+                window.location.reload(false);
+              } else {
+                setError(response.data.message);
+              }
+
+              _context6.next = 15;
+              break;
+
+            case 12:
+              _context6.prev = 12;
+              _context6.t0 = _context6["catch"](5);
+              setError("Erro !!");
+
+            case 15:
+            case "end":
+              return _context6.stop();
+          }
+        }
+      }, _callee6, null, [[5, 12]]);
+    }));
+
+    return function handleUpdateContact(_x4) {
+      return _ref5.apply(this, arguments);
+    };
+  }();
 
   var onCancel = function onCancel() {
     //reset and hide form
@@ -88237,13 +88382,15 @@ function Contact() {
     setFace("");
     setLinkedin("");
     setPhones([{
+      id: "",
       number: "",
       type: "Residencial"
     }]);
     setShowForm(false);
+    setShowFormEdit(false);
   };
 
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles__WEBPACK_IMPORTED_MODULE_15__["Container"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles__WEBPACK_IMPORTED_MODULE_15__["Title"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles__WEBPACK_IMPORTED_MODULE_15__["TextHeader"], null, "Contatos"), showForm ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles__WEBPACK_IMPORTED_MODULE_15__["ButtonCancel"], {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles__WEBPACK_IMPORTED_MODULE_15__["Container"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles__WEBPACK_IMPORTED_MODULE_15__["Title"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles__WEBPACK_IMPORTED_MODULE_15__["TextHeader"], null, "Contatos"), showForm || showFormEdit ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles__WEBPACK_IMPORTED_MODULE_15__["ButtonCancel"], {
     onClick: onCancel
   }, "Cancelar") : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles__WEBPACK_IMPORTED_MODULE_15__["ButtonAdd"], {
     onClick: function onClick() {
@@ -88291,12 +88438,66 @@ function Contact() {
       valueNumber: value.number,
       onAddIcon: function onAddIcon() {
         return setPhones([].concat(_toConsumableArray(phones), [{
+          id: "",
           number: "",
           type: "Residencial"
         }]));
       },
       onRemoveIcon: function onRemoveIcon() {
         return removePhone(i);
+      }
+    });
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
+    type: "submit"
+  }, "Salvar"))), showFormEdit && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles__WEBPACK_IMPORTED_MODULE_15__["ViewForm"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles__WEBPACK_IMPORTED_MODULE_15__["Form"], {
+    onSubmit: handleUpdateContact
+  }, error && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", null, error), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
+    type: "nome",
+    placeholder: "Nome",
+    onChange: function onChange(ev) {
+      return setName(ev.target.value);
+    },
+    value: name
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
+    type: "email",
+    placeholder: "Endere\xE7o de e-mail",
+    onChange: function onChange(ev) {
+      return setEmail(ev.target.value);
+    },
+    value: email
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
+    type: "face",
+    placeholder: "Ex: https://pt-br.facebook.com",
+    onChange: function onChange(ev) {
+      return setFace(ev.target.value);
+    },
+    value: face
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
+    type: "linkedin",
+    placeholder: "Ex: https://www.linkedin.com",
+    onChange: function onChange(ev) {
+      return setLinkedin(ev.target.value);
+    },
+    value: linkedin
+  }), phones.map(function (value, i) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_InputPhone__WEBPACK_IMPORTED_MODULE_14__["default"], {
+      onNumber: function onNumber(ev) {
+        return changeNumber(ev.target.value, i);
+      },
+      onType: function onType(ev) {
+        return changeType(ev.target.value, i);
+      },
+      valueType: value.type,
+      valueNumber: value.number,
+      onAddIcon: function onAddIcon() {
+        return setPhones([].concat(_toConsumableArray(phones), [{
+          id: "",
+          number: "",
+          type: "Residencial"
+        }]));
+      },
+      onRemoveIcon: function onRemoveIcon() {
+        return removePhone(i, value.id);
       }
     });
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {

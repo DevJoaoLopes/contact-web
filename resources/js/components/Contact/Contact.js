@@ -11,7 +11,6 @@ import Typography from "@material-ui/core/Typography";
 import FacebookIcon from "@material-ui/icons/Facebook";
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import DeleteIcon from "@material-ui/icons/Delete";
-
 import InputPhone from "./InputPhone";
 
 import {
@@ -49,13 +48,16 @@ function Contact() {
 
     const [error, setError] = React.useState("");
     const [email, setEmail] = React.useState("");
+    const [id, setId] = React.useState("");
+    const [removePhones, setRemovePhones] = React.useState([]);
     const [face, setFace] = React.useState("");
     const [linkedin, setLinkedin] = React.useState("");
     const [phones, setPhones] = React.useState([
-        { number: "", type: "Residencial" }
+        { id: "", number: "", type: "Residencial" }
     ]);
     const [name, setName] = React.useState("");
     const [showForm, setShowForm] = React.useState(false);
+    const [showFormEdit, setShowFormEdit] = React.useState(false);
     const [transactions, setTransactions] = React.useState([]);
 
     // get data api
@@ -91,9 +93,10 @@ function Contact() {
         setPhones(newPhones);
     };
 
-    const removePhone = i => {
+    const removePhone = (i, removes) => {
         const newPhones = phones.filter((_, index) => i !== index);
         setPhones(newPhones);
+        if(removes != '')  setRemovePhones([...removePhones, removes]);
     };
 
     const handleAddContact = async event => {
@@ -143,14 +146,62 @@ function Contact() {
     };
 
     const handleEdit = index => {
-        console.log(transactions[index]);
         const data = transactions[index];
+        setId(data.contact.id);
         setEmail(data.contact.email);
         setName(data.contact.name);
         setFace(data.contact.face);
         setLinkedin(data.contact.linkedin);
         setPhones([...data.phones]);
-        setShowForm(true);
+        setShowFormEdit(true);
+    };
+    
+    const handleUpdateContact = async event => {
+        event.preventDefault();
+        if (!email || !name) {
+            setError("Preencha nome e e-mail para continuar!");
+        } else {
+            try {
+                const response = await api.put("/api/edit/contact", {
+                    id,
+                    name,
+                    email,
+                    face,
+                    linkedin
+                });
+                if (response.status == 200) {
+                    if (phones[0].number) {
+                        phones.forEach(async element => {
+                            if (element.id != "") {
+                                await api.put("/api/edit/phone", {
+                                    id: element.id,
+                                    number: element.number,
+                                    type: element.type,
+                                    contact_id: id
+                                });
+                            } else {
+                                await api.post("/api/phones", {
+                                    number: element.number,
+                                    type: element.type,
+                                    contact_id: id
+                                });
+                            }
+                        });
+
+                        removePhones.forEach(async element => {
+                            await api.post("/api/delete/phone", {
+                                id: element
+                            });
+                        });
+                    }
+                    window.location.reload(false);
+                } else {
+                    setError(response.data.message);
+                }
+            } catch (error) {
+                setError("Erro !!");
+            }
+        }
     };
 
     const onCancel = () => {
@@ -159,18 +210,17 @@ function Contact() {
         setName("");
         setFace("");
         setLinkedin("");
-        setPhones([ { number: "", type: "Residencial" }]);
+        setPhones([{ id: "", number: "", type: "Residencial" }]);
         setShowForm(false);
-    }
+        setShowFormEdit(false);
+    };
 
     return (
         <Container>
             <Title>
                 <TextHeader>Contatos</TextHeader>
-                {showForm ? (
-                    <ButtonCancel onClick={onCancel}>
-                        Cancelar
-                    </ButtonCancel>
+                {showForm || showFormEdit ? (
+                    <ButtonCancel onClick={onCancel}>Cancelar</ButtonCancel>
                 ) : (
                     <ButtonAdd onClick={() => setShowForm(true)}>
                         Adicionar
@@ -217,10 +267,70 @@ function Contact() {
                                 onAddIcon={() =>
                                     setPhones([
                                         ...phones,
-                                        { number: "", type: "Residencial" }
+                                        {
+                                            id: "",
+                                            number: "",
+                                            type: "Residencial"
+                                        }
                                     ])
                                 }
                                 onRemoveIcon={() => removePhone(i)}
+                            />
+                        ))}
+
+                        <button type="submit">Salvar</button>
+                    </Form>
+                </ViewForm>
+            )}
+
+            {showFormEdit && (
+                <ViewForm>
+                    <Form onSubmit={handleUpdateContact}>
+                        {error && <p>{error}</p>}
+                        <input
+                            type="nome"
+                            placeholder="Nome"
+                            onChange={ev => setName(ev.target.value)}
+                            value={name}
+                        />
+                        <input
+                            type="email"
+                            placeholder="Endereço de e-mail"
+                            onChange={ev => setEmail(ev.target.value)}
+                            value={email}
+                        />
+                        <input
+                            type="face"
+                            placeholder="Ex: https://pt-br.facebook.com"
+                            onChange={ev => setFace(ev.target.value)}
+                            value={face}
+                        />
+                        <input
+                            type="linkedin"
+                            placeholder="Ex: https://www.linkedin.com"
+                            onChange={ev => setLinkedin(ev.target.value)}
+                            value={linkedin}
+                        />
+
+                        {phones.map((value, i) => (
+                            <InputPhone
+                                onNumber={ev =>
+                                    changeNumber(ev.target.value, i)
+                                }
+                                onType={ev => changeType(ev.target.value, i)}
+                                valueType={value.type}
+                                valueNumber={value.number}
+                                onAddIcon={() =>
+                                    setPhones([
+                                        ...phones,
+                                        {
+                                            id: "",
+                                            number: "",
+                                            type: "Residencial"
+                                        }
+                                    ])
+                                }
+                                onRemoveIcon={() => removePhone(i, value.id)}
                             />
                         ))}
 
