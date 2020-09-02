@@ -88219,10 +88219,32 @@ function Contact() {
     };
   }();
 
+  var handleEdit = function handleEdit(index) {
+    console.log(transactions[index]);
+    var data = transactions[index];
+    setEmail(data.contact.email);
+    setName(data.contact.name);
+    setFace(data.contact.face);
+    setLinkedin(data.contact.linkedin);
+    setPhones(_toConsumableArray(data.phones));
+    setShowForm(true);
+  };
+
+  var onCancel = function onCancel() {
+    //reset and hide form
+    setEmail("");
+    setName("");
+    setFace("");
+    setLinkedin("");
+    setPhones([{
+      number: "",
+      type: "Residencial"
+    }]);
+    setShowForm(false);
+  };
+
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles__WEBPACK_IMPORTED_MODULE_15__["Container"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles__WEBPACK_IMPORTED_MODULE_15__["Title"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles__WEBPACK_IMPORTED_MODULE_15__["TextHeader"], null, "Contatos"), showForm ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles__WEBPACK_IMPORTED_MODULE_15__["ButtonCancel"], {
-    onClick: function onClick() {
-      return setShowForm(false);
-    }
+    onClick: onCancel
   }, "Cancelar") : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles__WEBPACK_IMPORTED_MODULE_15__["ButtonAdd"], {
     onClick: function onClick() {
       return setShowForm(true);
@@ -88281,7 +88303,7 @@ function Contact() {
     type: "submit"
   }, "Salvar"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_core_List__WEBPACK_IMPORTED_MODULE_4__["default"], {
     className: classes.root
-  }, transactions.map(function (value) {
+  }, transactions.map(function (value, i) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_1___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_core_ListItem__WEBPACK_IMPORTED_MODULE_5__["default"], {
       alignItems: "flex-start"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_core_ListItemAvatar__WEBPACK_IMPORTED_MODULE_8__["default"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles__WEBPACK_IMPORTED_MODULE_15__["IconHeader"], {
@@ -88314,7 +88336,7 @@ function Contact() {
         }
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles__WEBPACK_IMPORTED_MODULE_15__["Button"], {
         onClick: function onClick() {
-          return console.log("clicou");
+          return handleEdit(i);
         },
         style: {
           cursor: "pointer"

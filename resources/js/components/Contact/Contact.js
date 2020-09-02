@@ -128,24 +128,47 @@ function Contact() {
         }
     };
 
-    const handleDelete = async (id) => {
-        await api.post("/api/delete/contact", {
-            id
-        }).then(res => {
-            if(res.status == 200){
-                window.location.reload(false);
-            }else{
-                console.log(res.data.error);
-            }
-        })
+    const handleDelete = async id => {
+        await api
+            .post("/api/delete/contact", {
+                id
+            })
+            .then(res => {
+                if (res.status == 200) {
+                    window.location.reload(false);
+                } else {
+                    console.log(res.data.error);
+                }
+            });
     };
+
+    const handleEdit = index => {
+        console.log(transactions[index]);
+        const data = transactions[index];
+        setEmail(data.contact.email);
+        setName(data.contact.name);
+        setFace(data.contact.face);
+        setLinkedin(data.contact.linkedin);
+        setPhones([...data.phones]);
+        setShowForm(true);
+    };
+
+    const onCancel = () => {
+        //reset and hide form
+        setEmail("");
+        setName("");
+        setFace("");
+        setLinkedin("");
+        setPhones([ { number: "", type: "Residencial" }]);
+        setShowForm(false);
+    }
 
     return (
         <Container>
             <Title>
                 <TextHeader>Contatos</TextHeader>
                 {showForm ? (
-                    <ButtonCancel onClick={() => setShowForm(false)}>
+                    <ButtonCancel onClick={onCancel}>
                         Cancelar
                     </ButtonCancel>
                 ) : (
@@ -206,7 +229,7 @@ function Contact() {
                 </ViewForm>
             )}
             <List className={classes.root}>
-                {transactions.map(value => (
+                {transactions.map((value, i) => (
                     <>
                         <ListItem alignItems="flex-start">
                             <ListItemAvatar>
@@ -264,14 +287,19 @@ function Contact() {
                                             }}
                                         >
                                             <Button
-                                                onClick={() =>
-                                                    console.log("clicou")
-                                                }
+                                                onClick={() => handleEdit(i)}
                                                 style={{ cursor: "pointer" }}
                                             >
                                                 Editar
                                             </Button>
-                                            <DeleteIcon style={styleIcon} onClick={() => handleDelete(value.contact.id)} />
+                                            <DeleteIcon
+                                                style={styleIcon}
+                                                onClick={() =>
+                                                    handleDelete(
+                                                        value.contact.id
+                                                    )
+                                                }
+                                            />
                                         </div>
                                     </React.Fragment>
                                 }
