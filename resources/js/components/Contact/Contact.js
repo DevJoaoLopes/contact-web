@@ -124,17 +124,8 @@ function Contact() {
                     api.post("/api/mail", {
                         email,
                         name
-                    })
-                        .then(res => {
-                            if (res.status == 200) {
-                                window.location.reload(false);
-                            } else {
-                                setError(res.data.message);
-                            }
-                        })
-                        .catch(err => {
-                            console.log(err);
-                        });
+                    });
+                    window.location.reload(false);
                 } else {
                     setError(response.data.message);
                 }
